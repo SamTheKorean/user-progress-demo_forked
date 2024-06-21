@@ -8,7 +8,7 @@ type UserProgressProps = {
 const UserProgressComponent: React.FC<UserProgressProps> = ({ user }) => {
   const calculateSubmoduleProgress = (submodule: { [question: string]: string | null }) => {
     const totalQuestions = Object.keys(submodule).length;
-    const answeredQuestions = Object.values(submodule).filter((answer) => answer !== null).length;
+    const answeredQuestions = Object.values(submodule).filter(answer => answer !== null).length;
     return (answeredQuestions / totalQuestions) * 100;
   };
 
@@ -17,9 +17,9 @@ const UserProgressComponent: React.FC<UserProgressProps> = ({ user }) => {
     let totalProgress = 0;
     let submoduleCount = 0;
 
-    moduleKeys.forEach((module) => {
+    moduleKeys.forEach(module => {
       const submoduleKeys = Object.keys(user.progress[module]);
-      submoduleKeys.forEach((submodule) => {
+      submoduleKeys.forEach(submodule => {
         totalProgress += calculateSubmoduleProgress(user.progress[module][submodule]);
         submoduleCount++;
       });
@@ -45,10 +45,10 @@ const UserProgressComponent: React.FC<UserProgressProps> = ({ user }) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {Object.keys(user.progress).map((module) => (
+        {Object.keys(user.progress).map(module => (
           <div key={module} className="border rounded-lg p-4">
             <h3 className="text-base font-semibold mb-2">{module}</h3>
-            {Object.keys(user.progress[module]).map((submodule) => (
+            {Object.keys(user.progress[module]).map(submodule => (
               <div key={submodule} className="mb-4">
                 <p className="text-sm font-semibold mb-1">{submodule}</p>
                 <div className="bg-gray-200 h-2 rounded-full mb-2">
@@ -59,10 +59,13 @@ const UserProgressComponent: React.FC<UserProgressProps> = ({ user }) => {
                 </div>
                 <p className="text-xs text-right mb-2">{calculateSubmoduleProgress(user.progress[module][submodule]).toFixed(0)}%</p>
                 <ul className="text-sm list-disc list-inside">
-                  {Object.keys(user.progress[module][submodule]).map((question) => (
-                    <li key={question} className="mb-1">
-                      <p className="font-semibold">{question}</p>
-                      <p className="ml-4">{user.progress[module][submodule][question] || "No answer provided"}</p>
+                  {Object.keys(user.progress[module][submodule]).map(question => (
+                    <li key={question} className="flex items-center mb-1">
+                      <span className="mr-2"></span>
+                      <div>
+                        <p className="font-semibold">{question}</p>
+                        <p className="ml-4">{user.progress[module][submodule][question] || "No answer provided"}</p>
+                      </div>
                     </li>
                   ))}
                 </ul>
