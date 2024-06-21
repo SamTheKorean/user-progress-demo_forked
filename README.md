@@ -50,13 +50,13 @@ This project is a user progress tracking application that visualizes progress fo
 
 ## Tech Stack
 
-- React
+- React (TypeScript)
 - Tailwind CSS
+- Vite
 
 ## Contributors
 
-- [Your Name](https://github.com/your-profile)
-- [Contributor Name](https://github.com/contributor-profile)
+- [Sam Lee](https://github.com/samthekorean)
 
 ## License
 
