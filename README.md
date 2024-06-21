@@ -57,7 +57,3 @@ This project is a user progress tracking application that visualizes progress fo
 ## Contributors
 
 - [Sam Lee](https://github.com/samthekorean)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
