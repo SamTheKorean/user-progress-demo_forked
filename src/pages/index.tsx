@@ -2,11 +2,12 @@ import React from 'react';
 import UserProgressComponent from '@/components/UserProgress';
 import { usersProgress } from '@/lib/data';
 
-const calculateSubmoduleProgress = (submodule) => {
+const calculateSubmoduleProgress = (submodule: { [question: string]: string | null }) => {
   const totalQuestions = Object.keys(submodule).length;
-  const answeredQuestions = Object.values(submodule).filter((answer) => answer !== null).length;
+  const answeredQuestions = Object.values(submodule).filter(answer => answer !== null).length;
   return (answeredQuestions / totalQuestions) * 100;
 };
+
 
 const calculateOverallProgress = () => {
   let totalProgress = 0;
